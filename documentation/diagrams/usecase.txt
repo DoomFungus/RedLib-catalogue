@@ -1,0 +1,48 @@
+@startuml
+left to right direction
+actor "Guest user" as aguest
+actor "Registered user" as areggu
+package Management {
+  actor Administrator as aadmin
+  actor Moderator as amoder
+  actor Analyst as aanaly
+}
+package "Book Management" {
+  usecase "Add/Manage books" as UCM1
+  usecase "Add/Manage authors" as UCM2
+  usecase "Manage tags" as UCM3
+  usecase "Add reviews" as UCM4
+  usecase "Manage reviews" as UCM5
+  usecase "Get metrics/statistics" as UCM6
+}
+package "Submission Management"  {
+  usecase "Submit new books" as UCS1
+  usecase "Review submissions" as UCS2
+}
+note right
+  Users submitting new books to be pulished
+  on the service is not currently implemented
+end note
+package "Book Search" {
+  usecase "Search for books" as UCB1
+}
+package "System Management" {
+  usecase "Manage users" as UCU1
+  usecase "Manage roles" as UCU2
+}
+aadmin --> UCU1
+aadmin --> UCU2
+
+areggu --> UCS1
+amoder --> UCS2
+
+amoder --> UCM1
+amoder --> UCM2
+amoder --> UCM3
+areggu --> UCM4
+amoder --> UCM5
+aanaly --> UCM6
+
+aguest --> UCB1
+areggu --> UCB1
+@enduml
