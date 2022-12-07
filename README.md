@@ -6,7 +6,7 @@ _put metrics here_
 ## General
 
 This repository contains a catalogue microservice of a book management and search system developed for Advanced Software Engineering course in the BHT.
-It's sister repository containing search microservice can be found at _put link here_
+It's sister repository containing search microservice can be found at [here](https://github.com/DoomFungus/RedLib-search)
 
 The purpose of this system is to provide a simple way to catalogue and search books as part of larger application, such as an online library or a bookstore.
 
