@@ -18,6 +18,9 @@ As part of the documentation, 3 diagrams have been created:
 
 ### 2 DDD
 
+As part of design process, the following domain diagram was created:
+[Domain Diagram](https://github.com/DoomFungus/RedLib-catalogue/blob/master/documentation/diagrams/DDD.png)
+
 ### 3 Event Storming
 
 ### 4 Metrics
