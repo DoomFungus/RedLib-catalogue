@@ -1,6 +1,8 @@
 package edu.bht.ase.redlib.service.impl;
 
 import edu.bht.ase.redlib.dto.BookDto;
+import edu.bht.ase.redlib.exception.codes.CatalogueExceptionCodes;
+import edu.bht.ase.redlib.exception.ex.EntityNotFoundException;
 import edu.bht.ase.redlib.mapper.BookMapper;
 import edu.bht.ase.redlib.model.Author;
 import edu.bht.ase.redlib.repository.BookRepository;
@@ -20,7 +22,9 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public BookDto findBookById(Integer id) {
-        var book = bookRepository.findById(id).get();
+        var book = bookRepository
+                .findById(id)
+                .orElseThrow(() -> new EntityNotFoundException(CatalogueExceptionCodes.BOOK_DOES_NOT_EXIST));
         return bookMapper.bookToBookDto(book);
     }
 
@@ -36,8 +40,10 @@ public class BookServiceImpl implements BookService {
         var foundAuthorIds = authors.stream()
                 .map(Author::getId)
                 .collect(Collectors.toSet());
-        if (!foundAuthorIds.containsAll(authorIds)) {
-            throw new RuntimeException();
+        authorIds.removeAll(foundAuthorIds);
+        if (!authorIds.isEmpty()) {
+            throw new EntityNotFoundException(CatalogueExceptionCodes.AUTHOR_DOES_NOT_EXIST,
+                    authorIds.stream().findFirst().get());
         }
 
         book.setAuthors(authors);
