@@ -40,7 +40,7 @@ _tests are not written yet_
 
 ### 8 Continuous Delivery
 
-_add links to Heroku_
+_AWS deploy is in progress_
 
 ### 9 DSL
 
