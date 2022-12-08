@@ -32,7 +32,9 @@ _in progress_
 ### 6 Build Management
 Maven was used as a build management tool. A convention-over-configuration tool, it provides good support for prototyping new projects with Spring, giving the ability to rely on a convention in most cases and reducing boilerplate code.
 
-_add links to maven files_
+Maven files (pom.xml) can be found here:
+- [Catalogue Service](https://github.com/DoomFungus/RedLib-catalogue/blob/master/pom.xml)
+- [Search Service](https://github.com/DoomFungus/RedLib-search/blob/master/pom.xml)
 
 
 ### 7 Testing
