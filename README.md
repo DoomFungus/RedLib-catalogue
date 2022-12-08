@@ -14,7 +14,7 @@ The purpose of this system is to provide a simple way to catalogue and search bo
 As part of the documentation, 3 diagrams have been created:
 - The [use case diagram](https://github.com/DoomFungus/RedLib-catalogue/blob/master/documentation/diagrams/usecase-redlib.png) shows scenarios in which system can be used as well as involved actors. Relevant PlantUML markup can be found [here](https://github.com/DoomFungus/RedLib-catalogue/blob/master/documentation/diagrams/usecase.txt)
 - The [component diagram](https://github.com/DoomFungus/RedLib-catalogue/blob/master/documentation/diagrams/component.png) shows the ways different microservices interact with each other and the external systems. Relevant PlantUML markup can be found [here](https://github.com/DoomFungus/RedLib-catalogue/blob/master/documentation/diagrams/component.txt)
-- _add class diagram when project is more complete_
+- _add sql diagram when project is more complete_
 
 ### 2 DDD
 
@@ -48,4 +48,4 @@ _no example yet_
 
 ### 10 Functional Programming
 
-_no example yet_
+Minor application of functional-stzle programming can be found [here](https://github.com/DoomFungus/RedLib-catalogue/blob/master/src/main/java/edu/bht/ase/redlib/service/impl/BookServiceImpl.java#L31)
