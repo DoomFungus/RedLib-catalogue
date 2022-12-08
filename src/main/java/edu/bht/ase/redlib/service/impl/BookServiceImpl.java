@@ -19,7 +19,7 @@ public class BookServiceImpl implements BookService {
     private final BookMapper bookMapper = BookMapper.INSTANCE;
 
     @Override
-    public BookDto getBookById(Integer id) {
+    public BookDto findBookById(Integer id) {
         var book = bookRepository.findById(id).get();
         return bookMapper.bookToBookDto(book);
     }
