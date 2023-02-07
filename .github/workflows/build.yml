@@ -6,12 +6,34 @@ on:
   push:
     branches:
       - master
+
+env:
+  DATASOURCE_URL: postgres
+  DATASOURCE_USERNAME: postgres
+  DATASOURCE_PASSWORD: postgres
+
 jobs:
   #Test's job
   tests:
     name: Unit tests
     #Run on Ubuntu using the latest version
     runs-on: ubuntu-latest
+
+    services:
+      # Label used to access the service container
+      postgres:
+        # Docker Hub image
+        image: postgres
+        # Provide the password for postgres
+        env:
+          POSTGRES_PASSWORD: postgres
+        # Set health checks to wait until postgres has started
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
     #Job's steps
     steps:
       #Check-out your repository under $GITHUB_WORKSPACE, so your workflow can access it
