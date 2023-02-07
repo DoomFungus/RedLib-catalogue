@@ -8,7 +8,7 @@ on:
       - master
 
 env:
-  DATASOURCE_URL: postgres
+  DATASOURCE_URL: jdbc:postgresql://postgres:5432/postgres
   DATASOURCE_USERNAME: postgres
   DATASOURCE_PASSWORD: postgres
 
