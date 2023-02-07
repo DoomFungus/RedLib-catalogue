@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController("/book")
+@RestController(value = "/book")
 @RequiredArgsConstructor
 public class BookController {
     private final BookService bookService;
