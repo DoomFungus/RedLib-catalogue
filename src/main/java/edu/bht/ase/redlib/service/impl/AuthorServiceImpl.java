@@ -1,6 +1,8 @@
 package edu.bht.ase.redlib.service.impl;
 
 import edu.bht.ase.redlib.dto.AuthorDto;
+import edu.bht.ase.redlib.exception.codes.CatalogueExceptionCodes;
+import edu.bht.ase.redlib.exception.ex.EntityNotFoundException;
 import edu.bht.ase.redlib.mapper.AuthorMapper;
 import edu.bht.ase.redlib.model.Author;
 import edu.bht.ase.redlib.repository.AuthorRepository;
@@ -24,7 +26,9 @@ public class AuthorServiceImpl implements AuthorService {
 
     @Override
     public AuthorDto findAuthorById(Integer id) {
-        var author = authorRepository.findById(id).get();
+        var author = authorRepository
+                .findById(id)
+                .orElseThrow(() -> new EntityNotFoundException(CatalogueExceptionCodes.AUTHOR_DOES_NOT_EXIST));
         return authorMapper.authorToAuthorDto(author);
     }
 

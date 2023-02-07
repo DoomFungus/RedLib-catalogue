@@ -18,6 +18,9 @@ As part of the documentation, 3 diagrams have been created:
 
 ### 2 DDD
 
+As part of design process, the following domain diagram was created:
+[Domain Diagram](https://github.com/DoomFungus/RedLib-catalogue/blob/master/documentation/diagrams/DDD.png)
+
 ### 3 Event Storming
 
 ### 4 Metrics
@@ -32,7 +35,9 @@ _in progress_
 ### 6 Build Management
 Maven was used as a build management tool. A convention-over-configuration tool, it provides good support for prototyping new projects with Spring, giving the ability to rely on a convention in most cases and reducing boilerplate code.
 
-_add links to maven files_
+Maven files (pom.xml) can be found here:
+- [Catalogue Service](https://github.com/DoomFungus/RedLib-catalogue/blob/master/pom.xml)
+- [Search Service](https://github.com/DoomFungus/RedLib-search/blob/master/pom.xml)
 
 
 ### 7 Testing
@@ -40,7 +45,7 @@ _tests are not written yet_
 
 ### 8 Continuous Delivery
 
-_add links to Heroku_
+_AWS deploy is in progress_
 
 ### 9 DSL
 
