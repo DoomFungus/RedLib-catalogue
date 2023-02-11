@@ -124,5 +124,5 @@ jobs:
         with:
           task-definition: aws/ecs_task_definition.yml
           service: redlib_catalogue
-          cluster: ${{ env.ECS_CLUSTER }}
+          cluster: redlib-cluster
           wait-for-service-stability: true
