@@ -1,0 +1,54 @@
+{
+  "taskDefinitionArn": "arn:aws:ecs:eu-central-1:185366319753:task-definition/RedLib:1",
+  "containerDefinitions": [
+    {
+      "name": "redlib_catalogue",
+      "image": "185366319753.dkr.ecr.eu-central-1.amazonaws.com/redlib_catalogue:latest",
+      "cpu": 0,
+      "portMappings": [
+        {
+          "name": "redlib_catalogue-80-tcp",
+          "containerPort": 80,
+          "hostPort": 0,
+          "protocol": "tcp",
+          "appProtocol": "http"
+        }
+      ],
+      "essential": true,
+      "environment": [],
+      "environmentFiles": [],
+      "mountPoints": [],
+      "volumesFrom": []
+    }
+  ],
+  "family": "RedLib",
+  "executionRoleArn": "arn:aws:iam::185366319753:role/ecsTaskExecutionRole",
+  "networkMode": "bridge",
+  "revision": 1,
+  "volumes": [],
+  "status": "ACTIVE",
+  "requiresAttributes": [
+    {
+      "name": "com.amazonaws.ecs.capability.ecr-auth"
+    },
+    {
+      "name": "ecs.capability.execution-role-ecr-pull"
+    }
+  ],
+  "placementConstraints": [],
+  "compatibilities": [
+    "EC2"
+  ],
+  "requiresCompatibilities": [
+    "EC2"
+  ],
+  "cpu": "1024",
+  "memory": "1024",
+  "runtimePlatform": {
+    "cpuArchitecture": "X86_64",
+    "operatingSystemFamily": "LINUX"
+  },
+  "registeredAt": "2023-02-11T16:55:50.668Z",
+  "registeredBy": "arn:aws:iam::185366319753:root",
+  "tags": []
+}
