@@ -14,15 +14,6 @@
           "appProtocol": "http"
         }
       ],
-      "logConfiguration": {
-        "logDriver": "awslogs",
-        "options": {
-          "awslogs-create-group": "true",
-          "awslogs-group": "awslogs-wordpress",
-          "awslogs-region": "eu-central-1",
-          "awslogs-stream-prefix": "awslogs-example"
-        }
-      },
       "essential": true,
       "environment": [ {
         "name": "DATASOURCE_URL",
