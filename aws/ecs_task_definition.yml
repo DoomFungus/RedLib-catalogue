@@ -15,17 +15,27 @@
         }
       ],
       "essential": true,
-      "environment": [],
-      "environmentFiles": [],
-      "mountPoints": [],
-      "volumesFrom": []
+      "environment": [ {
+        "name": "DATASOURCE_URL",
+        "value": "jdbc:postgresql://redlib-postgres.crqtiiz6o2nf.eu-central-1.rds.amazonaws.com:5432/postgres"
+      } ],
+      "environmentFiles": [ ],
+      "mountPoints": [ ],
+      "volumesFrom": [ ],
+      "secrets": [ {
+        "name": "DATASOURCE_USERNAME",
+        "valueFrom": "arn:aws:secretsmanager:eu-central-1:185366319753:secret:rds!db-4104b76f-1fc5-4541-97b8-fe2630dae3ef:username:"
+      },{
+        "name": "DATASOURCE_PASSWORD",
+        "valueFrom": "arn:aws:secretsmanager:eu-central-1:185366319753:secret:rds!db-4104b76f-1fc5-4541-97b8-fe2630dae3ef:password:"
+      } ]
     }
   ],
   "family": "RedLib",
   "executionRoleArn": "arn:aws:iam::185366319753:role/ecsTaskExecutionRole",
   "networkMode": "bridge",
   "revision": 1,
-  "volumes": [],
+  "volumes": [ ],
   "status": "ACTIVE",
   "requiresAttributes": [
     {
@@ -35,7 +45,7 @@
       "name": "ecs.capability.execution-role-ecr-pull"
     }
   ],
-  "placementConstraints": [],
+  "placementConstraints": [ ],
   "compatibilities": [
     "EC2"
   ],
@@ -50,5 +60,5 @@
   },
   "registeredAt": "2023-02-11T16:55:50.668Z",
   "registeredBy": "arn:aws:iam::185366319753:root",
-  "tags": []
+  "tags": [ ]
 }
