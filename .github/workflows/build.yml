@@ -125,6 +125,6 @@ jobs:
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:
           task-definition: aws/ecs_task_definition.yml
-          service: redlib_catalogue
+          service: redlib-catalogue
           cluster: redlib-cluster
           wait-for-service-stability: true
