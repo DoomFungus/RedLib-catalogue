@@ -33,10 +33,10 @@
       "volumesFrom": [ ],
       "secrets": [ {
         "name": "DATASOURCE_USERNAME",
-        "valueFrom": "arn:aws:secretsmanager:eu-central-1:185366319753:secret:rds!db-4104b76f-1fc5-4541-97b8-fe2630dae3ef:username:"
+        "valueFrom": "arn:aws:secretsmanager:eu-central-1:185366319753:secret:rds!db-4104b76f-1fc5-4541-97b8-fe2630dae3ef-WTJmTT:username:"
       },{
         "name": "DATASOURCE_PASSWORD",
-        "valueFrom": "arn:aws:secretsmanager:eu-central-1:185366319753:secret:rds!db-4104b76f-1fc5-4541-97b8-fe2630dae3ef:password:"
+        "valueFrom": "arn:aws:secretsmanager:eu-central-1:185366319753:secret:rds!db-4104b76f-1fc5-4541-97b8-fe2630dae3ef-WTJmTT:password:"
       } ]
     }
   ],
