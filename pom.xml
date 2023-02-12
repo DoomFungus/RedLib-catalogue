@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>edu.bht.ase</groupId>
-	<artifactId>RedLib</artifactId>
+	<artifactId>RedLib-catalogue</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>RedLib</name>
-	<description>RedLib</description>
+	<name>RedLib-catalogue</name>
+	<description>RedLib-catalogue</description>
 	<properties>
 		<java.version>17</java.version>
 		<maven.compiler.source>17</maven.compiler.source>
