@@ -49,6 +49,11 @@
   "compatibilities": [
     "EC2"
   ],
+  "networkConfiguration": {
+    "awsvpcConfiguration": {
+      "assignPublicIp": "ENABLED"
+    }
+  },
   "requiresCompatibilities": [
     "EC2"
   ],
