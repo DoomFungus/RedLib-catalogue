@@ -22,12 +22,12 @@ public class ExceptionHandlerAdvice extends ResponseEntityExceptionHandler {
     private static final String REASON_CODE_KEY = "reasonCode";
     private static final String REASON_DESCRIPTION_KEY = "reasonDescription";
 
-    @ExceptionHandler(value
-            = {Exception.class})
-    protected ResponseEntity<Object> handleAllExceptions(
-            Exception ex, WebRequest request) {
-        return handleExpectedExceptions(AbstractException.getGenericException(), request);
-    }
+    //@ExceptionHandler(value
+    //        = {Exception.class})
+    //protected ResponseEntity<Object> handleAllExceptions(
+    //        Exception ex, WebRequest request) {
+    //    return handleExpectedExceptions(AbstractException.getGenericException(), request);
+    //}
 
     @ExceptionHandler(value
             = {AbstractException.class})

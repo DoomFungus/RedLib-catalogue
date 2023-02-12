@@ -33,14 +33,6 @@
   "executionRoleArn": "arn:aws:iam::185366319753:role/ecsTaskExecutionRole",
   "networkMode": "awsvpc",
   "volumes": [ ],
-  "requiresAttributes": [
-    {
-      "name": "com.amazonaws.ecs.capability.ecr-auth"
-    },
-    {
-      "name": "ecs.capability.execution-role-ecr-pull"
-    }
-  ],
   "placementConstraints": [ ],
   "requiresCompatibilities": [
     "EC2"
