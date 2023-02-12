@@ -8,10 +8,8 @@ on:
       - master
 
 env:
-  DATASOURCE_URL: mongodb://localhost:27017
+  DATASOURCE_URI: mongodb://mongo:password@localhost:27017
   DATASOURCE_DATABASE: test
-  DATASOURCE_USERNAME: mongo
-  DATASOURCE_PASSWORD: mongo
 
 jobs:
   #Test's job
