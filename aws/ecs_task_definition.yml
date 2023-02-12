@@ -1,5 +1,4 @@
 {
-  "taskDefinitionArn": "arn:aws:ecs:eu-central-1:185366319753:task-definition/RedLib:1",
   "containerDefinitions": [
     {
       "name": "redlib_catalogue",
@@ -34,9 +33,7 @@
   "family": "RedLib",
   "executionRoleArn": "arn:aws:iam::185366319753:role/ecsTaskExecutionRole",
   "networkMode": "awsvpc",
-  "revision": 1,
   "volumes": [ ],
-  "status": "ACTIVE",
   "requiresAttributes": [
     {
       "name": "com.amazonaws.ecs.capability.ecr-auth"
@@ -46,14 +43,6 @@
     }
   ],
   "placementConstraints": [ ],
-  "compatibilities": [
-    "EC2"
-  ],
-  "networkConfiguration": {
-    "awsvpcConfiguration": {
-      "assignPublicIp": "ENABLED"
-    }
-  },
   "requiresCompatibilities": [
     "EC2"
   ],
@@ -63,7 +52,5 @@
     "cpuArchitecture": "X86_64",
     "operatingSystemFamily": "LINUX"
   },
-  "registeredAt": "2023-02-11T16:55:50.668Z",
-  "registeredBy": "arn:aws:iam::185366319753:root",
   "tags": [ ]
 }
