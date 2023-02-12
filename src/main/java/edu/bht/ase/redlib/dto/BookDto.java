@@ -10,4 +10,6 @@ public class BookDto {
     private String name;
     private String summary;
     private List<AuthorDto> authors;
+    private List<ReviewDto> reviews;
+    private List<String> tags;
 }
