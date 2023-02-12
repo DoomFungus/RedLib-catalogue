@@ -33,7 +33,7 @@
   ],
   "family": "RedLib",
   "executionRoleArn": "arn:aws:iam::185366319753:role/ecsTaskExecutionRole",
-  "networkMode": "bridge",
+  "networkMode": "awsvpc",
   "revision": 1,
   "volumes": [ ],
   "status": "ACTIVE",
