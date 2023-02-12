@@ -29,14 +29,14 @@ public class ExceptionHandlerAdvice extends ResponseEntityExceptionHandler {
     //    return handleExpectedExceptions(AbstractException.getGenericException(), request);
     //}
 
-    @ExceptionHandler(value
-            = {AbstractException.class})
-    protected ResponseEntity<Object> handleExpectedExceptions(
-            AbstractException ex, WebRequest request) {
-        Map<String, Object> body = new LinkedHashMap<>();
-
-        return new ResponseEntity<>(body, new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR);
-    }
+//    @ExceptionHandler(value
+//            = {AbstractException.class})
+//    protected ResponseEntity<Object> handleExpectedExceptions(
+//            AbstractException ex, WebRequest request) {
+//        Map<String, Object> body = new LinkedHashMap<>();
+//
+//        return new ResponseEntity<>(body, new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR);
+//    }
 
     @ExceptionHandler(value
             = {EntityNotFoundException.class})
