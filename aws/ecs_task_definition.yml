@@ -4,6 +4,15 @@
       "name": "redlib_catalogue",
       "image": "185366319753.dkr.ecr.eu-central-1.amazonaws.com/redlib_catalogue:latest",
       "cpu": 0,
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "firelens-container",
+          "awslogs-region": "us-west-2",
+          "awslogs-create-group": "true",
+          "awslogs-stream-prefix": "firelens"
+        }
+      },
       "portMappings": [
         {
           "name": "redlib_catalogue-80-tcp",
