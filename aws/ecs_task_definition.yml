@@ -14,10 +14,16 @@
         }
       ],
       "essential": true,
-      "environment": [ {
-        "name": "DATASOURCE_URL",
-        "value": "jdbc:postgresql://redlib-postgres.crqtiiz6o2nf.eu-central-1.rds.amazonaws.com:5432/postgres"
-      } ],
+      "environment": [
+        {
+          "name": "DATASOURCE_URL",
+          "value": "mongodb+srv://redlibmongodb.xtrw4b9.mongodb.net"
+        },
+        {
+          "name": "DATASOURCE_DATABASE",
+          "value": "RedLibMongoDB"
+        }
+      ],
       "environmentFiles": [ ],
       "mountPoints": [ ],
       "volumesFrom": [ ],

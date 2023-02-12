@@ -1,19 +1,12 @@
 spring:
   application:
     name: catalogue-service
-  datasource:
-    url: ${DATASOURCE_URL}
-    driver-class-name: org.postgresql.Driver
-    password: ${DATASOURCE_PASSWORD}
-    username: ${DATASOURCE_USERNAME}
-  flyway:
-    baseline-on-migrate: true
-    enabled: true
-    schemas: 'public'
-    user: ${DATASOURCE_USERNAME}
-    password: ${DATASOURCE_PASSWORD}
-    url: ${DATASOURCE_URL}
-    out-of-order: true
+  data:
+    mongodb:
+      uri: ${DATASOURCE_URL}
+      database: ${DATASOURCE_DATABASE}
+      password: ${DATASOURCE_PASSWORD}
+      username: ${DATASOURCE_USERNAME}
 server:
   port: 80
   servlet:

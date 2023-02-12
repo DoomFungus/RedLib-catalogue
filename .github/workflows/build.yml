@@ -8,9 +8,10 @@ on:
       - master
 
 env:
-  DATASOURCE_URL: jdbc:postgresql://localhost:5432/postgres
-  DATASOURCE_USERNAME: postgres
-  DATASOURCE_PASSWORD: postgres
+  DATASOURCE_URL: localhost:27017
+  DATASOURCE_DATABASE: test
+  DATASOURCE_USERNAME: mongo
+  DATASOURCE_PASSWORD: mongo
 
 jobs:
   #Test's job
@@ -21,21 +22,19 @@ jobs:
 
     services:
       # Label used to access the service container
-      postgres:
-        # Docker Hub image
-        image: postgres
-        # Provide the password for postgres
+      mongodb:
+        image: mongo
         env:
-          POSTGRES_PASSWORD: postgres
-        # Set health checks to wait until postgres has started
+          MONGO_INITDB_ROOT_USERNAME: mongo
+          MONGO_INITDB_ROOT_PASSWORD: password
+          MONGO_INITDB_DATABASE: test
         options: >-
-          --health-cmd pg_isready
+          --health-cmd mongo
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
-        # Maps tcp port 5432 on service container to the host
         ports:
-          - 5432:5432
+          - 27017:27017
 
     #Job's steps
     steps:
