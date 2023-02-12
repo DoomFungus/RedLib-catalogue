@@ -8,7 +8,7 @@ on:
       - master
 
 env:
-  DATASOURCE_URL: mongodb+srv://localhost:27017
+  DATASOURCE_URL: mongodb+srv://localhost
   DATASOURCE_DATABASE: test
   DATASOURCE_USERNAME: mongo
   DATASOURCE_PASSWORD: mongo
