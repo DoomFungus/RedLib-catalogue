@@ -1,7 +1,14 @@
 # Book Management and Search System (Catalogue Microservice)
-## Metrics  
+## Metrics   
 
-_put metrics here_
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=DoomFungus_RedLib-catalogue&metric=bugs)](https://sonarcloud.io/summary/new_code?id=DoomFungus_RedLib-catalogue)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=DoomFungus_RedLib-catalogue&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=DoomFungus_RedLib-catalogue)
+[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=DoomFungus_RedLib-catalogue&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=DoomFungus_RedLib-catalogue)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=DoomFungus_RedLib-catalogue&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=DoomFungus_RedLib-catalogue)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=DoomFungus_RedLib-catalogue&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=DoomFungus_RedLib-catalogue)
+[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=DoomFungus_RedLib-catalogue&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=DoomFungus_RedLib-catalogue)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=DoomFungus_RedLib-catalogue&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=DoomFungus_RedLib-catalogue)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=DoomFungus_RedLib-catalogue&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=DoomFungus_RedLib-catalogue)
 
 ## General
 
@@ -25,7 +32,7 @@ As part of design process, the following domain diagram was created:
 
 ### 4 Metrics
 
-_put metrics here_
+SonarQube is used in the project for evaluation, vulnerability detection and metrics generation. The analysis is automatic, occurs during each push to master branch. Sonar analysis can be found [here]{https://sonarcloud.io/project/overview?id=DoomFungus_RedLib-catalogue}
 
 ### 5 Clean Code Development
 
@@ -45,7 +52,7 @@ _tests are not written yet_
 
 ### 8 Continuous Delivery
 
-_AWS deploy is in progress_
+Github Actions are used to create CI/CD pipeline for automatic test running and building, as well as deployment to Amazon ECS. Amazon deployment includes creating new ECS task definition, uploading image to ECR, running the the task on ECS. Deploy uses EC2 instances with a load balancer. External gateway can be accessed [here]{RedLibBalancer-1382607045.eu-central-1.elb.amazonaws.com}
 
 ### 9 DSL
 
