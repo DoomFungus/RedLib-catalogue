@@ -36,7 +36,7 @@
       } ]
     }
   ],
-  "family": "RedLib",
+  "family": "RedLib-catalogue",
   "executionRoleArn": "arn:aws:iam::185366319753:role/ecsTaskExecutionRole",
   "networkMode": "awsvpc",
   "volumes": [ ],
