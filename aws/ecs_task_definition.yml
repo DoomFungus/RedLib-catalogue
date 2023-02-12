@@ -16,10 +16,6 @@
       "essential": true,
       "environment": [
         {
-          "name": "DATASOURCE_URL",
-          "value": "mongodb+srv://redlibmongodb.xtrw4b9.mongodb.net"
-        },
-        {
           "name": "DATASOURCE_DATABASE",
           "value": "RedLibMongoDB"
         }
@@ -28,12 +24,9 @@
       "mountPoints": [ ],
       "volumesFrom": [ ],
       "secrets": [ {
-        "name": "DATASOURCE_USERNAME",
-        "valueFrom": "arn:aws:secretsmanager:eu-central-1:185366319753:secret:MongoCreds-3KdB4b:username::"
-      },{
-        "name": "DATASOURCE_PASSWORD",
-        "valueFrom": "arn:aws:secretsmanager:eu-central-1:185366319753:secret:MongoCreds-3KdB4b:password::"
-      } ]
+        "name": "DATASOURCE_URI",
+        "valueFrom": "arn:aws:secretsmanager:eu-central-1:185366319753:secret:MongoCreds-3KdB4b:uri::"
+      }]
     }
   ],
   "family": "RedLib-catalogue",
