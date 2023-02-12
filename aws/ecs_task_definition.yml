@@ -7,10 +7,10 @@
       "logConfiguration": {
         "logDriver": "awslogs",
         "options": {
-          "awslogs-group": "firelens-container",
-          "awslogs-region": "us-west-2",
+          "awslogs-group": "redlib-catalogue",
+          "awslogs-region": "eu-central-1",
           "awslogs-create-group": "true",
-          "awslogs-stream-prefix": "firelens"
+          "awslogs-stream-prefix": "redlib-catalogue"
         }
       },
       "portMappings": [
