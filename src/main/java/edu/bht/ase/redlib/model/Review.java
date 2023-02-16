@@ -7,17 +7,16 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Document("authors")
-public class Author {
+@Document("reviews")
+public class Review {
     @Id
     private String id;
     private String name;
+    private String text;
+    private Integer rating;
     @DBRef
-    private List<Book> books = new ArrayList<>();
+    private Book book;
 }

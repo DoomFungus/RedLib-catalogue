@@ -5,12 +5,14 @@ import edu.bht.ase.redlib.exception.codes.CatalogueExceptionCodes;
 import edu.bht.ase.redlib.exception.ex.EntityNotFoundException;
 import edu.bht.ase.redlib.mapper.BookMapper;
 import edu.bht.ase.redlib.model.Author;
+import edu.bht.ase.redlib.model.Book;
 import edu.bht.ase.redlib.repository.BookRepository;
 import edu.bht.ase.redlib.service.interfaces.AuthorService;
 import edu.bht.ase.redlib.service.interfaces.BookService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
@@ -21,11 +23,15 @@ public class BookServiceImpl implements BookService {
     private final BookMapper bookMapper = BookMapper.INSTANCE;
 
     @Override
-    public BookDto findBookById(Integer id) {
-        var book = bookRepository
+    public Book getBookById(String id) {
+        return bookRepository
                 .findById(id)
                 .orElseThrow(() -> new EntityNotFoundException(CatalogueExceptionCodes.BOOK_DOES_NOT_EXIST));
-        return bookMapper.bookToBookDto(book);
+    }
+
+    @Override
+    public BookDto findBookById(String id) {
+        return bookMapper.bookToBookDto(getBookById(id));
     }
 
     @Override
@@ -47,6 +53,8 @@ public class BookServiceImpl implements BookService {
         }
 
         book.setAuthors(authors);
+
+        book.setId(UUID.randomUUID().toString());
         book = bookRepository.save(book);
         return bookMapper.bookToBookDto(book);
     }
