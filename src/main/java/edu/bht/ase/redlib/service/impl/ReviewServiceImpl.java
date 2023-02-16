@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -18,18 +19,19 @@ public class ReviewServiceImpl implements ReviewService {
     private static final ReviewMapper reviewMapper = ReviewMapper.INSTANCE;
 
     @Override
-    public ReviewDto createReview(Integer bookId, ReviewDto reviewDto) {
+    public ReviewDto createReview(String bookId, ReviewDto reviewDto) {
         var review = reviewMapper.reviewDtoToReview(reviewDto);
 
         var book = bookService.getBookById(bookId);
         review.setBook(book);
 
+        review.setId(UUID.randomUUID().toString());
         review = reviewRepository.save(review);
         return reviewMapper.reviewToReviewDto(review);
     }
 
     @Override
-    public List<ReviewDto> findReviewsByBookId(Integer id) {
+    public List<ReviewDto> findReviewsByBookId(String id) {
         return reviewRepository
                 .findAllByBookId(id)
                 .stream().map(reviewMapper::reviewToReviewDto).toList();

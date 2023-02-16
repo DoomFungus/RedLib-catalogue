@@ -13,7 +13,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document("reviews")
 public class Review {
     @Id
-    private Integer id;
+    private String id;
     private String name;
     private String text;
     private Integer rating;

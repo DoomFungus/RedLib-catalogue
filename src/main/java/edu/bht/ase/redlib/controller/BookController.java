@@ -17,22 +17,22 @@ public class BookController {
     private final ReviewService reviewService;
 
     @GetMapping("/{id}")
-    public BookDto getBookById(@PathVariable(name = "id") Integer id) {
+    public BookDto getBookById(@PathVariable(name = "id") String id) {
         return bookService.findBookById(id);
     }
 
     @PostMapping()
-    public BookDto createBook(BookDto bookDto) {
+    public BookDto createBook(@RequestBody BookDto bookDto) {
         return bookService.createBook(bookDto);
     }
 
     @GetMapping("/{id}/review")
-    public List<ReviewDto> getReviews(@PathVariable(name = "id") Integer id) {
+    public List<ReviewDto> getReviews(@PathVariable(name = "id") String id) {
         return reviewService.findReviewsByBookId(id);
     }
 
     @PostMapping("/{id}/review")
-    public ReviewDto createReview(@PathVariable(name = "id") Integer id, ReviewDto reviewDto) {
+    public ReviewDto createReview(@PathVariable(name = "id") String id, @RequestBody ReviewDto reviewDto) {
         return reviewService.createReview(id, reviewDto);
     }
 }

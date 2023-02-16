@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -20,12 +21,12 @@ public class AuthorServiceImpl implements AuthorService {
     private final AuthorMapper authorMapper = AuthorMapper.INSTANCE;
 
     @Override
-    public List<Author> getAuthorsByIds(Collection<Integer> ids) {
+    public List<Author> getAuthorsByIds(Collection<String> ids) {
         return authorRepository.findAllByIdIn(ids);
     }
 
     @Override
-    public AuthorDto findAuthorById(Integer id) {
+    public AuthorDto findAuthorById(String id) {
         var author = authorRepository
                 .findById(id)
                 .orElseThrow(() -> new EntityNotFoundException(CatalogueExceptionCodes.AUTHOR_DOES_NOT_EXIST));
@@ -36,6 +37,7 @@ public class AuthorServiceImpl implements AuthorService {
     public AuthorDto createAuthor(AuthorDto authorDto) {
         var author = authorMapper.authorDtoToAuthor(authorDto);
 
+        author.setId(UUID.randomUUID().toString());
         author = authorRepository.save(author);
         return authorMapper.authorToAuthorDto(author);
     }

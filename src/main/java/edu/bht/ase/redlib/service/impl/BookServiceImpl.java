@@ -12,6 +12,7 @@ import edu.bht.ase.redlib.service.interfaces.BookService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
@@ -22,14 +23,14 @@ public class BookServiceImpl implements BookService {
     private final BookMapper bookMapper = BookMapper.INSTANCE;
 
     @Override
-    public Book getBookById(Integer id) {
+    public Book getBookById(String id) {
         return bookRepository
                 .findById(id)
                 .orElseThrow(() -> new EntityNotFoundException(CatalogueExceptionCodes.BOOK_DOES_NOT_EXIST));
     }
 
     @Override
-    public BookDto findBookById(Integer id) {
+    public BookDto findBookById(String id) {
         return bookMapper.bookToBookDto(getBookById(id));
     }
 
@@ -52,6 +53,8 @@ public class BookServiceImpl implements BookService {
         }
 
         book.setAuthors(authors);
+
+        book.setId(UUID.randomUUID().toString());
         book = bookRepository.save(book);
         return bookMapper.bookToBookDto(book);
     }

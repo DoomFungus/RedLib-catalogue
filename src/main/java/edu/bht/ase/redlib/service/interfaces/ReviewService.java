@@ -6,7 +6,7 @@ import java.util.List;
 
 
 public interface ReviewService {
-    List<ReviewDto> findReviewsByBookId(Integer id);
+    List<ReviewDto> findReviewsByBookId(String id);
 
-    ReviewDto createReview(Integer bookId, ReviewDto reviewDto);
+    ReviewDto createReview(String bookId, ReviewDto reviewDto);
 }

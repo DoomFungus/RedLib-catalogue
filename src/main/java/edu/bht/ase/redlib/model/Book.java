@@ -16,7 +16,7 @@ import java.util.List;
 @Document("books")
 public class Book {
     @Id
-    private Integer id;
+    private String id;
     private String name;
     private String summary;
     @DBRef

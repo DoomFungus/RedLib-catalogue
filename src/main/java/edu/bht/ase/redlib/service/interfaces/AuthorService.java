@@ -7,9 +7,9 @@ import java.util.Collection;
 import java.util.List;
 
 public interface AuthorService {
-    List<Author> getAuthorsByIds(Collection<Integer> ids);
+    List<Author> getAuthorsByIds(Collection<String> ids);
 
-    AuthorDto findAuthorById(Integer id);
+    AuthorDto findAuthorById(String id);
 
     AuthorDto createAuthor(AuthorDto authorDto);
 }

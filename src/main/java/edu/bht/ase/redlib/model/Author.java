@@ -16,7 +16,7 @@ import java.util.List;
 @Document("authors")
 public class Author {
     @Id
-    private Integer id;
+    private String id;
     private String name;
     @DBRef
     private List<Book> books = new ArrayList<>();

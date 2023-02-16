@@ -12,12 +12,12 @@ public class AuthorController {
     private final AuthorService authorService;
 
     @GetMapping("/{id}")
-    public AuthorDto getAuthorById(@PathVariable(name = "id") Integer id) {
+    public AuthorDto getAuthorById(@PathVariable(name = "id") String id) {
         return authorService.findAuthorById(id);
     }
 
     @PostMapping()
-    public AuthorDto createAuthor(AuthorDto authorDto) {
+    public AuthorDto createAuthor(@RequestBody AuthorDto authorDto) {
         return authorService.createAuthor(authorDto);
     }
 }

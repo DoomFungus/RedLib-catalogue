@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 import java.util.Collection;
 import java.util.List;
 @Repository
-public interface AuthorRepository extends MongoRepository<Author, Integer> {
-    List<Author> findAllByIdIn(Collection<Integer> ids);
+public interface AuthorRepository extends MongoRepository<Author, String> {
+    List<Author> findAllByIdIn(Collection<String> ids);
 }

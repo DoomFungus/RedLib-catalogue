@@ -4,6 +4,6 @@ import lombok.Data;
 
 @Data
 public class AuthorDto {
-    private Integer id;
+    private String id;
     private String name;
 }
