@@ -6,6 +6,6 @@ spring:
       uri: ${DATASOURCE_URI}
       database: ${DATASOURCE_DATABASE}
 server:
-  port: 80
+  port: 8081
   servlet:
     context-path: '/catalogue'
