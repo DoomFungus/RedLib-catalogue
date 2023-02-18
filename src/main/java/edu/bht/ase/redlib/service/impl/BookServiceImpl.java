@@ -5,7 +5,6 @@ import edu.bht.ase.redlib.exception.codes.CatalogueExceptionCodes;
 import edu.bht.ase.redlib.exception.ex.EntityNotFoundException;
 import edu.bht.ase.redlib.mapper.BookMapper;
 import edu.bht.ase.redlib.model.Author;
-import edu.bht.ase.redlib.model.Book;
 import edu.bht.ase.redlib.repository.BookRepository;
 import edu.bht.ase.redlib.service.interfaces.AuthorService;
 import edu.bht.ase.redlib.service.interfaces.BookService;
@@ -23,15 +22,17 @@ public class BookServiceImpl implements BookService {
     private static final BookMapper bookMapper = BookMapper.INSTANCE;
 
     @Override
-    public Book getBookById(String id) {
-        return bookRepository
-                .findById(id)
-                .orElseThrow(() -> new EntityNotFoundException(CatalogueExceptionCodes.BOOK_DOES_NOT_EXIST));
+    public void checkIfBookExists(String id) {
+        if (!bookRepository.existsById(id))
+            throw new EntityNotFoundException(CatalogueExceptionCodes.BOOK_DOES_NOT_EXIST);
     }
 
     @Override
     public BookDto findBookById(String id) {
-        return bookMapper.bookToBookDto(getBookById(id));
+        var book = bookRepository
+                .findById(id)
+                .orElseThrow(() -> new EntityNotFoundException(CatalogueExceptionCodes.BOOK_DOES_NOT_EXIST));
+        return bookMapper.bookToBookDto(book);
     }
 
     @Override

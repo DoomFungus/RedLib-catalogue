@@ -22,8 +22,8 @@ public class ReviewServiceImpl implements ReviewService {
     public ReviewDto createReview(String bookId, ReviewDto reviewDto) {
         var review = reviewMapper.reviewDtoToReview(reviewDto);
 
-        var book = bookService.getBookById(bookId);
-        review.setBook(book);
+        bookService.checkIfBookExists(bookId);
+        review.setBookId(bookId);
 
         review.setId(UUID.randomUUID().toString());
         review = reviewRepository.save(review);
