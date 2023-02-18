@@ -2,11 +2,9 @@ package edu.bht.ase.redlib.exception.ex;
 
 import com.fasterxml.jackson.annotation.JsonIncludeProperties;
 import edu.bht.ase.redlib.exception.codes.ExceptionCodes;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
-@EqualsAndHashCode(callSuper = true)
 @JsonIncludeProperties({"reasonCode", "reasonDescription"})
 @Getter
 @Setter
