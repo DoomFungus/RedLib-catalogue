@@ -2,12 +2,14 @@ package edu.bht.ase.redlib.exception.ex;
 
 import com.fasterxml.jackson.annotation.JsonIncludeProperties;
 import edu.bht.ase.redlib.exception.codes.ExceptionCodes;
-import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 
 @EqualsAndHashCode(callSuper = true)
 @JsonIncludeProperties({"reasonCode", "reasonDescription"})
-@Data
+@Getter
+@Setter
 public class AbstractException extends RuntimeException {
     private final String reasonCode;
     private final String reasonDescription;
@@ -27,7 +29,7 @@ public class AbstractException extends RuntimeException {
         reasonDescription = String.format(code.getReasonDescription(), formatArgs);
     }
 
-    public static AbstractException getGenericException(){
+    public static AbstractException getGenericException() {
         return new AbstractException("GEN-001", "Exception occurred");
     }
 }
