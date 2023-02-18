@@ -1,5 +1,7 @@
 package edu.bht.ase.redlib.unittests.service;
 
+import edu.bht.ase.redlib.exception.codes.CatalogueExceptionCodes;
+import edu.bht.ase.redlib.exception.ex.EntityNotFoundException;
 import edu.bht.ase.redlib.model.Book;
 import edu.bht.ase.redlib.repository.BookRepository;
 import edu.bht.ase.redlib.service.impl.BookServiceImpl;
@@ -17,9 +19,11 @@ import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 import static edu.bht.ase.redlib.testdata.TestData.TEST_AUTHOR_ID;
+import static edu.bht.ase.redlib.testdata.TestData.TEST_BOOK_ID;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -57,5 +61,29 @@ class BookServiceTest {
         Mockito.verify(bookRepository).save(argument.capture());
         Assertions.assertThat(argument.getValue().getId())
                 .matches(s -> s.matches("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"));
+    }
+
+    @Test
+    void should_ThrowNotFoundException_When_BookNotFound() {
+        when(bookRepository.findById(TEST_BOOK_ID)).thenReturn(Optional.empty());
+
+        String expectedReasonCode = CatalogueExceptionCodes.BOOK_DOES_NOT_EXIST.reasonCode;
+        String expectedReasonDescription = "Book with id bookid does not exist";
+        Assertions.assertThatThrownBy(() -> bookService.findBookById(TEST_BOOK_ID))
+                .isInstanceOf(EntityNotFoundException.class)
+                .matches(x -> expectedReasonCode.equals(((EntityNotFoundException)x).getReasonCode()))
+                .matches(x -> expectedReasonDescription.equals(((EntityNotFoundException)x).getReasonDescription()));
+    }
+
+    @Test
+    void should_ThrowNotFoundException_When_BookDoesntExist() {
+        when(bookRepository.existsById(TEST_BOOK_ID)).thenReturn(false);
+
+        String expectedReasonCode = CatalogueExceptionCodes.BOOK_DOES_NOT_EXIST.reasonCode;
+        String expectedReasonDescription = "Book with id bookid does not exist";
+        Assertions.assertThatThrownBy(() -> bookService.checkIfBookExists(TEST_BOOK_ID))
+                .isInstanceOf(EntityNotFoundException.class)
+                .matches(x -> expectedReasonCode.equals(((EntityNotFoundException)x).getReasonCode()))
+                .matches(x -> expectedReasonDescription.equals(((EntityNotFoundException)x).getReasonDescription()));
     }
 }

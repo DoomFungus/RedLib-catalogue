@@ -24,14 +24,14 @@ public class BookServiceImpl implements BookService {
     @Override
     public void checkIfBookExists(String id) {
         if (!bookRepository.existsById(id))
-            throw new EntityNotFoundException(CatalogueExceptionCodes.BOOK_DOES_NOT_EXIST);
+            throw new EntityNotFoundException(CatalogueExceptionCodes.BOOK_DOES_NOT_EXIST, id);
     }
 
     @Override
     public BookDto findBookById(String id) {
         var book = bookRepository
                 .findById(id)
-                .orElseThrow(() -> new EntityNotFoundException(CatalogueExceptionCodes.BOOK_DOES_NOT_EXIST));
+                .orElseThrow(() -> new EntityNotFoundException(CatalogueExceptionCodes.BOOK_DOES_NOT_EXIST, id));
         return bookMapper.bookToBookDto(book);
     }
 

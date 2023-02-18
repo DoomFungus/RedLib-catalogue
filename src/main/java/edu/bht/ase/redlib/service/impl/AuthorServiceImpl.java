@@ -29,7 +29,7 @@ public class AuthorServiceImpl implements AuthorService {
     public AuthorDto findAuthorById(String id) {
         var author = authorRepository
                 .findById(id)
-                .orElseThrow(() -> new EntityNotFoundException(CatalogueExceptionCodes.AUTHOR_DOES_NOT_EXIST));
+                .orElseThrow(() -> new EntityNotFoundException(CatalogueExceptionCodes.AUTHOR_DOES_NOT_EXIST, id));
         return authorMapper.authorToAuthorDto(author);
     }
 
