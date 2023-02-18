@@ -6,7 +6,7 @@ import edu.bht.ase.redlib.testdata.entity.BookTestData;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class BookMapperTest {
+class BookMapperTest {
     BookMapper bookMapper = BookMapper.INSTANCE;
 
     @Test

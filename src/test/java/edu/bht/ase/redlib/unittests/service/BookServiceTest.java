@@ -23,7 +23,7 @@ import static edu.bht.ase.redlib.testdata.TestData.TEST_AUTHOR_ID;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-public class BookServiceTest {
+class BookServiceTest {
     @InjectMocks
     private BookServiceImpl bookService;
     @Spy

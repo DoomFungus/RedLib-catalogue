@@ -6,7 +6,7 @@ import edu.bht.ase.redlib.testdata.entity.AuthorTestData;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class AuthorMapperTest {
+class AuthorMapperTest {
     AuthorMapper authorMapper = AuthorMapper.INSTANCE;
 
     @Test
