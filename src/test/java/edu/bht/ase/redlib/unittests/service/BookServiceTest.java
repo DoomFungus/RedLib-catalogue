@@ -64,6 +64,28 @@ class BookServiceTest {
     }
 
     @Test
+    void should_ThrowNotFoundException_When_AuthorsNotFoundDuringBookCreation() {
+        var bookDto = BookDtoTestData.aBookDto();
+        when(authorService.getAuthorsByIds(Set.of(TEST_AUTHOR_ID))).thenReturn(List.of());
+
+        String expectedReasonCode = CatalogueExceptionCodes.AUTHOR_DOES_NOT_EXIST.reasonCode;
+        String expectedReasonDescription = "Author with id authorid does not exist";
+        Assertions.assertThatThrownBy(() -> bookService.createBook(bookDto))
+                .isInstanceOf(EntityNotFoundException.class)
+                .matches(x -> expectedReasonCode.equals(((EntityNotFoundException) x).getReasonCode()))
+                .matches(x -> expectedReasonDescription.equals(((EntityNotFoundException) x).getReasonDescription()));
+    }
+
+    @Test
+    void should_ReturnBook_When_BookFound() {
+        when(bookRepository.findById(TEST_BOOK_ID)).thenReturn(Optional.of(BookTestData.aBook()));
+
+        var book = bookService.findBookById(TEST_BOOK_ID);
+
+        Assertions.assertThat(book).usingRecursiveComparison().isEqualTo(BookDtoTestData.aBookDto());
+    }
+
+    @Test
     void should_ThrowNotFoundException_When_BookNotFound() {
         when(bookRepository.findById(TEST_BOOK_ID)).thenReturn(Optional.empty());
 
@@ -71,8 +93,15 @@ class BookServiceTest {
         String expectedReasonDescription = "Book with id bookid does not exist";
         Assertions.assertThatThrownBy(() -> bookService.findBookById(TEST_BOOK_ID))
                 .isInstanceOf(EntityNotFoundException.class)
-                .matches(x -> expectedReasonCode.equals(((EntityNotFoundException)x).getReasonCode()))
-                .matches(x -> expectedReasonDescription.equals(((EntityNotFoundException)x).getReasonDescription()));
+                .matches(x -> expectedReasonCode.equals(((EntityNotFoundException) x).getReasonCode()))
+                .matches(x -> expectedReasonDescription.equals(((EntityNotFoundException) x).getReasonDescription()));
+    }
+
+    @Test
+    void should_NotRaiseExceptions_When_BookExists() {
+        when(bookRepository.existsById(TEST_BOOK_ID)).thenReturn(true);
+
+        bookService.checkIfBookExists(TEST_BOOK_ID);
     }
 
     @Test
@@ -83,7 +112,7 @@ class BookServiceTest {
         String expectedReasonDescription = "Book with id bookid does not exist";
         Assertions.assertThatThrownBy(() -> bookService.checkIfBookExists(TEST_BOOK_ID))
                 .isInstanceOf(EntityNotFoundException.class)
-                .matches(x -> expectedReasonCode.equals(((EntityNotFoundException)x).getReasonCode()))
-                .matches(x -> expectedReasonDescription.equals(((EntityNotFoundException)x).getReasonDescription()));
+                .matches(x -> expectedReasonCode.equals(((EntityNotFoundException) x).getReasonCode()))
+                .matches(x -> expectedReasonDescription.equals(((EntityNotFoundException) x).getReasonDescription()));
     }
 }

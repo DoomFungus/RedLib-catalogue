@@ -62,7 +62,16 @@ class AuthorServiceTest {
         String expectedReasonDescription = "Author with id authorid does not exist";
         Assertions.assertThatThrownBy(() -> authorService.findAuthorById(TEST_AUTHOR_ID))
                 .isInstanceOf(EntityNotFoundException.class)
-                .matches(x -> expectedReasonCode.equals(((EntityNotFoundException)x).getReasonCode()))
-                .matches(x -> expectedReasonDescription.equals(((EntityNotFoundException)x).getReasonDescription()));
+                .matches(x -> expectedReasonCode.equals(((EntityNotFoundException) x).getReasonCode()))
+                .matches(x -> expectedReasonDescription.equals(((EntityNotFoundException) x).getReasonDescription()));
+    }
+
+    @Test
+    void should_ReturnAuthor_When_AuthorFound() {
+        when(authorRepository.findById(TEST_AUTHOR_ID)).thenReturn(Optional.of(AuthorTestData.anAuthor()));
+
+        var authorDto = authorService.findAuthorById(TEST_AUTHOR_ID);
+
+        Assertions.assertThat(authorDto).usingRecursiveComparison().isEqualTo(AuthorDtoTestData.anAuthorDto());
     }
 }
