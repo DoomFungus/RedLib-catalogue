@@ -21,6 +21,7 @@ public class AbstractException extends RuntimeException {
         this.reasonCode = reasonCode;
         this.reasonDescription = reasonDescription;
     }
+
     public AbstractException(ExceptionCodes code, Object... formatArgs) {
         reasonCode = code.getReasonCode();
         reasonDescription = String.format(code.getReasonDescription(), formatArgs);

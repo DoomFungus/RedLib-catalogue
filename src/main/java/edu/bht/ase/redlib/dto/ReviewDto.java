@@ -1,8 +1,10 @@
 package edu.bht.ase.redlib.dto;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 public class ReviewDto {
     private String id;
     private String username;
