@@ -56,6 +56,64 @@ jobs:
       - name: Run Tests
         run: mvn -B test
 
+  #Sonar's Job
+  sonar:
+    #Depends on test's job
+    needs: tests
+    name: SonarCloud analysis
+    #Run on Ubuntu using the latest version
+    runs-on: ubuntu-latest
+
+    services:
+      # Label used to access the service container
+      mongodb:
+        image: mongo
+        env:
+          MONGO_INITDB_ROOT_USERNAME: mongo
+          MONGO_INITDB_ROOT_PASSWORD: password
+          MONGO_INITDB_DATABASE: test
+        options: >-
+          --health-cmd "echo 'db.runCommand("ping").ok' | mongosh --quiet"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 27017:27017
+
+    #Job's steps
+    steps:
+      #Check-out your repository under $GITHUB_WORKSPACE, so your workflow can access it
+      - uses: actions/checkout@v1
+      #Set up JDK 17
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: adopt
+      #Set up Maven cache
+      - name: Cache Maven packages
+        #This action allows caching dependencies and build outputs to improve workflow execution time.
+        uses: actions/cache@v3
+        with:
+          path: ~/.m2
+          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+          restore-keys: ${{ runner.os }}-m2
+      #Set up SonarCloud cache
+      - name: Cache SonarCloud packages
+        #This action allows caching dependencies and build outputs to improve workflow execution time.
+        uses: actions/cache@v3
+        with:
+          path: ~/.sonar/cache
+          key: ${{ runner.os }}-sonar
+          restore-keys: ${{ runner.os }}-sonar
+
+      #Analyze project with SonarCloud
+      - name: Analyze with SonarCloud
+        run: mvn -B verify sonar:sonar -Dsonar.projectKey=DoomFungus_RedLib-catalogue -Dsonar.organization=DoomFungus -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=$SONAR_TOKEN
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
   #Build's job
   build:
     #Depends on tests's job
