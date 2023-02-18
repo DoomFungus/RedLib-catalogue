@@ -18,7 +18,7 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class AuthorServiceImpl implements AuthorService {
     private final AuthorRepository authorRepository;
-    private final AuthorMapper authorMapper = AuthorMapper.INSTANCE;
+    private static final AuthorMapper authorMapper = AuthorMapper.INSTANCE;
 
     @Override
     public List<Author> getAuthorsByIds(Collection<String> ids) {

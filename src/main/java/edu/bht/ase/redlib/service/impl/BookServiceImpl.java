@@ -20,7 +20,7 @@ import java.util.stream.Collectors;
 public class BookServiceImpl implements BookService {
     private final AuthorService authorService;
     private final BookRepository bookRepository;
-    private final BookMapper bookMapper = BookMapper.INSTANCE;
+    private static final BookMapper bookMapper = BookMapper.INSTANCE;
 
     @Override
     public Book getBookById(String id) {
