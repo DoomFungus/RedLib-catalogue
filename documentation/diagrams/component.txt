@@ -2,24 +2,12 @@
 [Catalogue Microservice] as ccat
 [Search Microservice] as csea
 
-cloud {
-  () Kafka as ikaf
+database "MongoDB" {
+  [NoSQL Database] as mongo
 }
 
-
-database "PostgreSQL" {
-  [SQL Database] as dpos
-}
-
-database "ElasticSearch" {
-  [NoSQL Database] as dela
-}
-
-
-ccat <--> dpos
-csea <--> dela
-ccat .. ikaf
-csea .. ikaf
+ccat <--> mongo
+csea <--> mongo
 ccat -up-> HTTP
 csea -up-> HTTP
 @enduml
