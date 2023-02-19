@@ -18,6 +18,14 @@ It's sister repository containing search microservice can be found [here](https:
 
 The purpose of this system is to provide a simple way to catalogue and search books as part of larger application, such as an online library or a bookstore.
 
+Running the project:
+1. Download sources
+2. Compile and package the sources
+3. Use dockerfile to create a docker container
+4. Run both microservices in docker containers
+For packaging a project and running containers you need to provide the  MongoDB datasource. Use DATASOURCE_URI env variable for providing URI, and DATASOURCE_DATABASE for providing database name.
+By default, catalogue microservice will be listening on port 8081, and search on on 8082
+
 ### 1 UML
 As part of the documentation, 3 diagrams have been created:
 - The [use case diagram](https://github.com/DoomFungus/RedLib-catalogue/blob/master/documentation/diagrams/usecase-redlib.png) shows scenarios in which system can be used as well as involved actors. Relevant PlantUML markup can be found [here](https://github.com/DoomFungus/RedLib-catalogue/blob/master/documentation/diagrams/usecase.txt)
@@ -80,4 +88,16 @@ To give more flexibility in searching books, a simple JSON-based DSL was created
 
 ### 10 Functional Programming
 
-Minor application of functional-stzle programming can be found [here](https://github.com/DoomFungus/RedLib-catalogue/blob/master/src/main/java/edu/bht/ase/redlib/service/impl/BookServiceImpl.java#L31)
+[Use final data structures](https://github.com/DoomFungus/RedLib-catalogue/blob/master/src/main/java/edu/bht/ase/redlib/exception/ex/AbstractException.java#L11)
+[Use side effect-free functions](https://github.com/DoomFungus/RedLib-search/blob/master/src/main/java/edu/bht/ase/redlib/service/impl/SearchCriteriaBuilder.java#L33)
+[Use higher-order finctions](https://github.com/DoomFungus/RedLib-search/blob/master/src/main/java/edu/bht/ase/redlib/service/impl/SearchCriteriaBuilder.java#L45)
+
+## 11 IDE
+Intellij IDEA was used during development of this project
+  
+The most used shortcuts:
+- ```cmd + f``` (find)
+- ```cmd + r``` (replace) 
+- ```option + c/v/x``` (copy/paste/cut)
+- ```cmd + /``` (comment (out))  
+
