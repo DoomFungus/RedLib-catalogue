@@ -69,7 +69,7 @@ CI/CD workflow can be found [here](https://github.com/DoomFungus/RedLib-catalogu
 
 ### 9 DSL
 
-_no example yet_
+To give more flexibility in searching books, a simple JSON-based DSL was created. The documentation for it can be found [here]{https://github.com/DoomFungus/RedLib-catalogue/blob/master/documentation/dsl.md}
 
 ### 10 Functional Programming
 
