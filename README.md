@@ -21,7 +21,7 @@ The purpose of this system is to provide a simple way to catalogue and search bo
 As part of the documentation, 3 diagrams have been created:
 - The [use case diagram](https://github.com/DoomFungus/RedLib-catalogue/blob/master/documentation/diagrams/usecase-redlib.png) shows scenarios in which system can be used as well as involved actors. Relevant PlantUML markup can be found [here](https://github.com/DoomFungus/RedLib-catalogue/blob/master/documentation/diagrams/usecase.txt)
 - The [component diagram](https://github.com/DoomFungus/RedLib-catalogue/blob/master/documentation/diagrams/component.png) shows the ways different microservices interact with each other and the external systems. Relevant PlantUML markup can be found [here](https://github.com/DoomFungus/RedLib-catalogue/blob/master/documentation/diagrams/component.txt)
-- _add sql diagram when project is more complete_
+- NoSQL database MongoDB is used for persisting data. ERD diagram explaining the used entities can be found [here](https://github.com/DoomFungus/RedLib-catalogue/blob/master/documentation/diagrams/erd.png)
 
 ### 2 DDD
 
@@ -32,7 +32,9 @@ As part of design process, the following domain diagram was created:
 
 ### 4 Metrics
 
-SonarQube is used in the project for evaluation, vulnerability detection and metrics generation. The analysis is automatic, occurs during each push to master branch. Sonar analysis can be found [here]{https://sonarcloud.io/project/overview?id=DoomFungus_RedLib-catalogue}
+SonarQube is used in the project for evaluation, vulnerability detection and metrics generation. The analysis is automatic, occurs as part of the CI/CD. Sonar analysis can be found here:
+- [Catalogue service]{https://sonarcloud.io/project/overview?id=DoomFungus_RedLib-catalogue}
+- [Search service]{https://sonarcloud.io/project/overview?id=DoomFungus_RedLib-search}
 
 ### 5 Clean Code Development
 
@@ -48,11 +50,21 @@ Maven files (pom.xml) can be found here:
 
 
 ### 7 Testing
-_tests are not written yet_
+The project relies on unit tests, with only 1 test per service being integration test (context loading test). The test coverage of more than 75% percent was achieved on both services, with SonarQube and JaCoCo providing coverage report (can be viewed in detail in Sonarcloud).
+
+Test value data, test objects and tests are separated into different classes, to increase test data reusability.
+
+The most interesting test can be found [here]{https://github.com/DoomFungus/RedLib-search/blob/master/src/test/java/edu/bht/ase/redlib/unittests/service/SearchCriteriaBuilderTest.java}
 
 ### 8 Continuous Delivery
 
-Github Actions are used to create CI/CD pipeline for automatic test running and building, as well as deployment to Amazon ECS. Amazon deployment includes creating new ECS task definition, uploading image to ECR, running the the task on ECS. Deploy uses EC2 instances with a load balancer. External gateway can be accessed [here]{RedLibBalancer-1382607045.eu-central-1.elb.amazonaws.com}
+Github Actions are used to create CI/CD pipeline for automatic test running and building, as well as triggering SonarQube analysis.
+
+CI/CD is configured to run after each push to the master branch.
+
+Github Actions provides an easy-to-setup, free for noncommercial use way to setup CI/CD in Github environment, and is easy to integrate with other services, such as AWS deploy or SonarQube analysis.
+
+CI/CD workflow can be found [here]{https://github.com/DoomFungus/RedLib-catalogue/blob/master/.github/workflows/build.yml}, while the results of the runs can be found in Actions tab 
 
 ### 9 DSL
 
