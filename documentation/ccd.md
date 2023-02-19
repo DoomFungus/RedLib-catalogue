@@ -14,7 +14,7 @@
 1. Prefer unit test over integration test and integration test over manual test
 2. Unit tests should check only 1 condition, it should be reflected in test name (Not necessarily 1 assert, but 1 logical condition)
 3. Don't leave disabled test without responsibility to fix it. Add responsible person and a blocking condition
-4. Unit tests should have a following name pattern: should_\<TestedCondition\>_When_\<TestPrecondition\>
+4. Unit tests should have a following name pattern: should_\<TestedCondition\>\_When\_\<TestPrecondition\>
 
 ## Code style
 1. We have a SonarQube. Check it frequently and fix the code smells
