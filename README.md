@@ -94,7 +94,7 @@ To give more flexibility in searching books, a simple JSON-based DSL was created
 [Use side effect-free functions](https://github.com/DoomFungus/RedLib-search/blob/master/src/main/java/edu/bht/ase/redlib/service/impl/SearchCriteriaBuilder.java#L33)
 [Use higher-order finctions](https://github.com/DoomFungus/RedLib-search/blob/master/src/main/java/edu/bht/ase/redlib/service/impl/SearchCriteriaBuilder.java#L45)
 
-## 11 IDE
+### 11 IDE
 Intellij IDEA was used during development of this project
   
 The most used shortcuts:
