@@ -1,0 +1,21 @@
+{
+  "top": {
+    "operation": "AND",
+    "children": [
+      {
+        "operation": "EQUALS",
+        "field": "BOOK_NAME",
+        "value": [
+          "My first book"
+        ]
+      },
+      {
+        "operation": "CONTAINS",
+        "field": "AUTHOR_NAME",
+        "value": [
+          "Jack Smith"
+        ]
+      }
+    ]
+  }
+}
