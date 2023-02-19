@@ -40,7 +40,13 @@ SonarQube is used in the project for evaluation, vulnerability detection and met
 
 ### 5 Clean Code Development
 
-_in progress_
+- [Clear function and parameter names](https://github.com/DoomFungus/RedLib-catalogue/blob/master/src/main/java/edu/bht/ase/redlib/service/impl/BookServiceImpl.java#L25)
+- [Exception messages should provide enough information](https://github.com/DoomFungus/RedLib-catalogue/blob/master/src/main/java/edu/bht/ase/redlib/exception/codes/CatalogueExceptionCodes.java#L9)
+- [Unit tests should check only 1 condition, it should be reflected in test name](https://github.com/DoomFungus/RedLib-catalogue/blob/master/src/test/java/edu/bht/ase/redlib/unittests/service/BookServiceTest.java#L54) \(Not necessarily 1 assert, but 1 logical condition)
+- [Literals, such as error messages, should be reusable](https://github.com/DoomFungus/RedLib-catalogue/blob/master/src/main/java/edu/bht/ase/redlib/exception/codes/CatalogueExceptionCodes.java#L9)
+- [Aspect logic, such as top-level exception handling, should be decoupled from business logic](https://github.com/DoomFungus/RedLib-catalogue/blob/master/src/main/java/edu/bht/ase/redlib/exception/ExceptionHandlerAdvice.java#L18)
+
+Clean Code Cheatsheet can be found [here](https://github.com/DoomFungus/RedLib-catalogue/blob/master/documentation/ccd.md)
 
 
 ### 6 Build Management
