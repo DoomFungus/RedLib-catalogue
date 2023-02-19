@@ -5,7 +5,7 @@
 To give more flexibility in searching books, a simple JSON-based DSL was created. It provides client application a way to construct their own queries, using comparison operators as well as logical operators.
 
 ### 1 Accessing search endpoint
-Search can be accessed via POST <search host>/search/book
+Search can be accessed via POST \<search host\>/search/book
 
 ### 2 Structure of the request
 
