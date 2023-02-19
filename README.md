@@ -23,6 +23,7 @@ Running the project:
 2. Compile and package the sources
 3. Use dockerfile to create a docker container
 4. Run both microservices in docker containers
+
 For packaging a project and running containers you need to provide the  MongoDB datasource. Use DATASOURCE_URI env variable for providing URI, and DATASOURCE_DATABASE for providing database name.
 By default, catalogue microservice will be listening on port 8081, and search on on 8082
 
