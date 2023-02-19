@@ -33,8 +33,8 @@ As part of design process, the following domain diagram was created:
 ### 4 Metrics
 
 SonarQube is used in the project for evaluation, vulnerability detection and metrics generation. The analysis is automatic, occurs as part of the CI/CD. Sonar analysis can be found here:
-- [Catalogue service]{https://sonarcloud.io/project/overview?id=DoomFungus_RedLib-catalogue}
-- [Search service]{https://sonarcloud.io/project/overview?id=DoomFungus_RedLib-search}
+- [Catalogue service](https://sonarcloud.io/project/overview?id=DoomFungus_RedLib-catalogue)
+- [Search service](https://sonarcloud.io/project/overview?id=DoomFungus_RedLib-search)
 
 ### 5 Clean Code Development
 
@@ -54,7 +54,7 @@ The project relies on unit tests, with only 1 test per service being integration
 
 Test value data, test objects and tests are separated into different classes, to increase test data reusability.
 
-The most interesting test can be found [here]{https://github.com/DoomFungus/RedLib-search/blob/master/src/test/java/edu/bht/ase/redlib/unittests/service/SearchCriteriaBuilderTest.java}
+The most interesting test can be found [here](https://github.com/DoomFungus/RedLib-search/blob/master/src/test/java/edu/bht/ase/redlib/unittests/service/SearchCriteriaBuilderTest.java)
 
 ### 8 Continuous Delivery
 
@@ -64,7 +64,7 @@ CI/CD is configured to run after each push to the master branch.
 
 Github Actions provides an easy-to-setup, free for noncommercial use way to setup CI/CD in Github environment, and is easy to integrate with other services, such as AWS deploy or SonarQube analysis.
 
-CI/CD workflow can be found [here]{https://github.com/DoomFungus/RedLib-catalogue/blob/master/.github/workflows/build.yml}, while the results of the runs can be found in Actions tab 
+CI/CD workflow can be found [here](https://github.com/DoomFungus/RedLib-catalogue/blob/master/.github/workflows/build.yml), while the results of the runs can be found in Actions tab 
 
 ### 9 DSL
 
