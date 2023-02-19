@@ -9,7 +9,7 @@
 [![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=DoomFungus_RedLib-catalogue&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=DoomFungus_RedLib-catalogue)
 [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=DoomFungus_RedLib-catalogue&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=DoomFungus_RedLib-catalogue)
 [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=DoomFungus_RedLib-catalogue&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=DoomFungus_RedLib-catalogue)
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=DoomFungus_RedLib-search&metric=coverage)](https://sonarcloud.io/summary/new_code?id=DoomFungus_RedLib-search)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=DoomFungus_RedLib-catalogue&metric=coverage)](https://sonarcloud.io/summary/new_code?id=DoomFungus_RedLib-catalogue)
 
 ## General
 
