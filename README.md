@@ -30,6 +30,7 @@ As part of design process, the following domain diagram was created:
 [Domain Diagram](https://github.com/DoomFungus/RedLib-catalogue/blob/master/documentation/diagrams/DDD.png)
 
 ### 3 Event Storming
+Event storming diagram can be found [here](https://github.com/DoomFungus/RedLib-catalogue/blob/master/documentation/diagrams/event_storming.png), and core domain chart can be found [here](https://github.com/DoomFungus/RedLib-catalogue/blob/master/documentation/diagrams/core_domain_chart.png)
 
 ### 4 Metrics
 
