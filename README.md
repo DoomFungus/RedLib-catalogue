@@ -90,9 +90,9 @@ To give more flexibility in searching books, a simple JSON-based DSL was created
 
 ### 10 Functional Programming
 
-[Use final data structures](https://github.com/DoomFungus/RedLib-catalogue/blob/master/src/main/java/edu/bht/ase/redlib/exception/ex/AbstractException.java#L11)
-[Use side effect-free functions](https://github.com/DoomFungus/RedLib-search/blob/master/src/main/java/edu/bht/ase/redlib/service/impl/SearchCriteriaBuilder.java#L33)
-[Use higher-order finctions](https://github.com/DoomFungus/RedLib-search/blob/master/src/main/java/edu/bht/ase/redlib/service/impl/SearchCriteriaBuilder.java#L45)
+- [Use final data structures](https://github.com/DoomFungus/RedLib-catalogue/blob/master/src/main/java/edu/bht/ase/redlib/exception/ex/AbstractException.java#L11)
+- [Use side effect-free functions](https://github.com/DoomFungus/RedLib-search/blob/master/src/main/java/edu/bht/ase/redlib/service/impl/SearchCriteriaBuilder.java#L33)
+- [Use higher-order finctions](https://github.com/DoomFungus/RedLib-search/blob/master/src/main/java/edu/bht/ase/redlib/service/impl/SearchCriteriaBuilder.java#L45)
 
 ### 11 IDE
 Intellij IDEA was used during development of this project
